@@ -1,0 +1,61 @@
+/* --- DESIGN SYSTEM GLOBAL --- */
+:root {
+  /* Khai báo biến thời gian để cả nhóm đồng bộ tốc độ (Tiêu chí: Tính nhất quán 20%) */
+  --transition-speed: 0.5s;
+
+  /* Khai báo Prompt Logic: Cubic-bezier lấy từ các web Awwwards */
+  --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1); /* Dùng cho hiệu ứng trượt mượt mà */
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1); /* Để các bạn khác dùng cho nút bấm */
+
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --primary-color: #00ff88;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  overflow-x: hidden; /* Chống tràn khung Mobile (Tiêu chí: Tối ưu Mobile 20%) */
+}
+/* --- BÀI LÀM CỦA TRƯỞNG NHÓM: INTRO ANIMATION --- */
+
+/* Bố cục cơ bản */
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px;
+}
+.hero {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.highlight { color: var(--primary-color); }
+
+/* BÍ QUYẾT ĂN ĐIỂM TỐI ƯU HIỆU NĂNG */
+.intro-animate {
+  opacity: 0;
+  /* Đẩy phần tử chìm xuống dưới 50px, tuyệt đối không dùng margin-top hay top */
+  transform: translateY(50px);
+
+  /* Gọi animation kết hợp với biến thời gian đã tạo ở trên */
+  animation: slideUpFade var(--transition-speed) var(--ease-smooth) forwards;
+}
+
+/* Thêm delay cho Hero xuất hiện sau Header 0.3s cho đẹp mắt */
+.delay-1 {
+  animation-delay: 0.3s;
+}
+
+/* Khai báo Keyframes cho quá trình xuất hiện */
+@keyframes slideUpFade {
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Trở về vị trí gốc */
+  }
+}
