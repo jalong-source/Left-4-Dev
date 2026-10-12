@@ -1,22 +1,173 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gia Long - ePortfolio</title>
+    <meta name="theme-color" content="#f0f3ec">
+    <meta name="description" content="Left 4 Dev — nhóm phát triển web gồm Nhữ Mai Gia Long, Trần Khắc Đạt, Phạm Thành Danh và Nguyễn Hữu Thanh Trường.">
+    <title>Left 4 Dev — Interactive Showcase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Header bị ẩn lúc đầu -->
-    <header class="header intro-animate">
-        <h2>GIA LONG</h2>
-        <nav>Về tôi | Kỹ năng | Dự án</nav>
+    <a class="skip-link" href="#main">Bỏ qua điều hướng</a>
+    <header class="site-header intro-header">
+        <a class="wordmark" href="#home" aria-label="Left 4 Dev, về đầu trang">L4D<span>.</span></a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Mở menu">
+            <span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav" aria-label="Điều hướng chính">
+            <a href="#team">Thành viên</a>
+            <a href="#projects">Dự án</a>
+            <a href="#toolkit">Bộ công cụ</a>
+            <a class="nav-contact" href="#contact">Kết nối <span aria-hidden="true">↗</span></a>
+        </nav>
     </header>
 
-    <!-- Hero Section bị ẩn lúc đầu, trễ hơn header 1 chút -->
-    <section class="hero intro-animate delay-1">
-        <h1>Hi, I'm <span class="highlight">Gia Long</span></h1>
-        <p>Junior Backend Developer | Tộc Trưởng Tứ Tộc Thượng Cổ</p>
-    </section>
+    <main id="main">
+        <section class="hero section-wrap" id="home" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="eyebrow intro-rise"><span class="status-dot"></span> TEAM SHOWCASE · 2026</p>
+                <h1 class="intro-rise delay-one" id="hero-title">Left 4 Dev<span class="title-mark">.</span><br><span class="hero-outline">Build things</span><br>as a team.</h1>
+                <div class="hero-bottom intro-rise delay-two">
+                    <p>Nhóm phát triển web gồm bốn thành viên, cùng học hỏi và xây dựng những trải nghiệm số gọn gàng, hữu ích.</p>
+                    <a class="button button-dark" href="#team">Gặp các thành viên <span aria-hidden="true">↘</span></a>
+                </div>
+            </div>
+            <figure class="hero-visual intro-visual">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1300&q=85" alt="Bàn làm việc với laptop đang mở trình soạn thảo mã nguồn" fetchpriority="high">
+                <figcaption><span>01 / 04</span><span>Thoughtful by design</span></figcaption>
+                <span class="visual-stamp" aria-hidden="true">L4D<br>✳</span>
+            </figure>
+            <a class="scroll-cue" href="#about"><span></span> CUỘN ĐỂ KHÁM PHÁ</a>
+        </section>
+
+        <div class="ticker" aria-label="Lĩnh vực quan tâm">
+            <div class="ticker-track" aria-hidden="true">
+                <span>BACKEND DEVELOPMENT</span><i>✳</i><span>THOUGHTFUL INTERFACES</span><i>✳</i><span>LEARNING BY BUILDING</span><i>✳</i><span>BACKEND DEVELOPMENT</span><i>✳</i><span>THOUGHTFUL INTERFACES</span><i>✳</i>
+            </div>
+        </div>
+
+        <section class="about section-wrap section-pad" id="about" aria-labelledby="about-title" data-aos="fade-up">
+                <div class="section-kicker"><span>01</span><span> / VỀ NHÓM</span></div>
+            <div class="about-content">
+                <h2 id="about-title">Code tốt bắt đầu từ việc <span>cùng hiểu đúng vấn đề.</span></h2>
+                <div class="about-detail">
+                    <p>Left 4 Dev là nhóm bốn thành viên cùng học thiết kế và phát triển web. Nhóm ưu tiên cấu trúc rõ ràng, trải nghiệm dễ dùng và phối hợp để biến ý tưởng thành sản phẩm.</p>
+                    <a class="text-link" href="#team">Tìm hiểu về đội ngũ <span aria-hidden="true">↘</span></a>
+                </div>
+            </div>
+            <div class="principles" aria-label="Nguyên tắc làm việc">
+                <article><span class="principle-number">01</span><h3>Rõ ràng</h3><p>Ưu tiên cấu trúc dễ đọc, dễ tiếp tục phát triển.</p></article>
+                <article><span class="principle-number">02</span><h3>Có chủ đích</h3><p>Mỗi tương tác đều giúp người dùng tiến thêm một bước.</p></article>
+                <article><span class="principle-number">03</span><h3>Luôn học</h3><p>Thử nghiệm, nhận phản hồi và cải thiện liên tục.</p></article>
+            </div>
+        </section>
+
+        <section class="team section-wrap section-pad" id="team" aria-labelledby="team-title" data-aos="fade-up">
+            <div class="section-kicker"><span>02</span><span> / OUR TEAM</span></div>
+            <div class="team-heading">
+                <h2 id="team-title">Bốn người,<br><span>một đội ngũ.</span></h2>
+                <p>Mỗi thành viên góp một góc nhìn vào hành trình học và xây dựng sản phẩm của Left 4 Dev.</p>
+            </div>
+            <div class="team-grid">
+                <article class="team-member team-lead">
+                    <span class="team-number">01</span>
+                    <h3>Nhữ Mai Gia Long</h3>
+                    <p>Nhóm Trưởng</p>
+                </article>
+                <article class="team-member">
+                    <span class="team-number">02</span>
+                    <h3>Trần Khắc Đạt</h3>
+                    <p>Thành viên</p>
+                </article>
+                <article class="team-member">
+                    <span class="team-number">03</span>
+                    <h3>Phạm Thành Danh</h3>
+                    <p>Thành viên</p>
+                </article>
+                <article class="team-member">
+                    <span class="team-number">04</span>
+                    <h3>Nguyễn Hữu Thanh Trường</h3>
+                    <p>Thành viên</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="projects section-wrap section-pad" id="projects" aria-labelledby="projects-title">
+            <div class="section-heading" data-aos="fade-up">
+                <div class="section-kicker"><span>03</span><span> / SELECTED WORK</span></div>
+                <div class="heading-row"><h2 id="projects-title">Một vài thứ<br><span>mình đã làm.</span></h2><p>Những bài tập và prototype nhỏ, nơi mình thử nghiệm cách giải quyết vấn đề bằng code.</p></div>
+            </div>
+            <div class="project-grid">
+                <article class="project-card project-card-wide" data-aos="fade-up">
+                    <div class="project-image image-lime">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=85" alt="Màn hình dữ liệu và biểu đồ phân tích" loading="lazy">
+                        <span class="project-index">01 — PROTOTYPE</span>
+                    </div>
+                    <div class="project-info">
+                        <div><p class="project-type">WEB APP · DATA</p><h3>Signal / Dashboard</h3></div>
+                        <button class="detail-toggle" type="button" aria-expanded="false" aria-label="Xem chi tiết Signal Dashboard"><span aria-hidden="true">↗</span></button>
+                        <p class="project-detail" hidden>Một dashboard concept tập trung vào thứ tự ưu tiên: đưa trạng thái quan trọng lên trước, giữ dữ liệu phụ ở đúng nơi cần tìm.</p>
+                    </div>
+                    <ul class="tag-list" aria-label="Công nghệ"><li>JavaScript</li><li>CSS Grid</li><li>UI Design</li></ul>
+                </article>
+                <article class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image image-blue">
+                        <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=1000&q=85" alt="Mã nguồn trên màn hình máy tính" loading="lazy">
+                        <span class="project-index">02 — LAB</span>
+                    </div>
+                    <div class="project-info">
+                        <div><p class="project-type">BACKEND · API</p><h3>Little API Lab</h3></div>
+                        <button class="detail-toggle" type="button" aria-expanded="false" aria-label="Xem chi tiết Little API Lab"><span aria-hidden="true">↗</span></button>
+                        <p class="project-detail" hidden>Không gian thử nghiệm endpoint, validation và cách tổ chức dữ liệu để API có thể phát triển mà vẫn dễ hiểu.</p>
+                    </div>
+                    <ul class="tag-list" aria-label="Công nghệ"><li>REST</li><li>Node.js</li><li>Learning</li></ul>
+                </article>
+                <article class="project-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="project-image image-coral">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1000&q=85" alt="Nhóm cùng làm việc quanh máy tính" loading="lazy">
+                        <span class="project-index">03 — TEAMWORK</span>
+                    </div>
+                    <div class="project-info">
+                        <div><p class="project-type">COLLABORATION · WEB</p><h3>Dev Notes</h3></div>
+                        <button class="detail-toggle" type="button" aria-expanded="false" aria-label="Xem chi tiết Dev Notes"><span aria-hidden="true">↗</span></button>
+                        <p class="project-detail" hidden>Một concept chia sẻ ghi chú kỹ thuật, được thiết kế quanh việc đọc nhanh, tìm lại dễ và viết cùng nhau.</p>
+                    </div>
+                    <ul class="tag-list" aria-label="Công nghệ"><li>Team project</li><li>Responsive</li><li>Prototype</li></ul>
+                </article>
+            </div>
+            <p class="project-note" data-aos="fade-up">Các mục trên là prototype/learning projects, không phải sản phẩm thương mại.</p>
+        </section>
+
+        <section class="toolkit section-wrap section-pad" id="toolkit" aria-labelledby="toolkit-title" data-aos="fade-up">
+            <div class="section-kicker"><span>04</span><span> / CURRENT TOOLKIT</span></div>
+            <div class="toolkit-layout">
+                <h2 id="toolkit-title">Đang học,<br><span>đang xây.</span></h2>
+                <div class="toolkit-content">
+                    <p>Mình tập trung vào những nền tảng giúp sản phẩm chạy tốt và dễ tiếp tục phát triển.</p>
+                    <div class="toolkit-list"><span>HTML & CSS</span><span>JavaScript</span><span>Node.js</span><span>REST APIs</span><span>Git & GitHub</span><span>Responsive UI</span></div>
+                </div>
+                <div class="toolkit-aside"><span class="aside-star" aria-hidden="true">✳</span><p>Curiosity<br>is part of<br>the toolkit.</p></div>
+            </div>
+        </section>
+
+        <section class="contact section-wrap" id="contact" aria-labelledby="contact-title" data-aos="fade-up">
+            <div class="contact-top"><span>05 / KEEP IN TOUCH</span><span>OPEN TO LEARNING & COLLABORATION</span></div>
+            <h2 id="contact-title">Có ý tưởng?<br><span>Cùng bắt đầu nhé.</span></h2>
+            <a class="button button-light" href="https://github.com/jalong-source/Left-4-Dev" target="_blank" rel="noreferrer">Tìm nhóm trên GitHub <span aria-hidden="true">↗</span></a>
+            <div class="contact-doodle" aria-hidden="true">✳</div>
+        </section>
+    </main>
+
+    <footer class="site-footer section-wrap">
+        <a class="wordmark" href="#home" aria-label="Left 4 Dev, về đầu trang">L4D<span>.</span></a>
+        <p>Thiết kế và phát triển cùng Left 4 Dev.<br><span>© 2026 Left 4 Dev</span></p>
+        <a class="back-top" href="#home">LÊN ĐẦU TRANG ↑</a>
+    </footer>
 </body>
 </html>
