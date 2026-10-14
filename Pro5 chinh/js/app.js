@@ -202,6 +202,19 @@ document.querySelector('.newsletter-form').addEventListener('submit', (event) =>
 setLanguage(document.documentElement.lang);
 document.querySelector('#current-year').textContent = new Date().getFullYear();
 
+/* ---------- Lật thẻ kỹ năng khi click / touch trên mobile & bàn phím ---------- */
+document.querySelectorAll('.flip-skill-card').forEach((card) => {
+  card.addEventListener('click', () => {
+    card.classList.toggle('is-flipped');
+  });
+  card.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      card.classList.toggle('is-flipped');
+    }
+  });
+});
+
 if (window.AOS) {
   AOS.init({
     duration: 650,

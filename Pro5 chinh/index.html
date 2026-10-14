@@ -26,7 +26,9 @@
     <a class="skip-link" href="#main" data-i18n="skip">Bỏ qua điều hướng</a>
     <header class="site-header">
       <a class="brand" href="#home" aria-label="Ja Long — về đầu trang">
-        <span class="brand-mark">JL<span>.</span></span>
+        <span class="brand-glow-ring">
+          <span class="brand-mark">JL<span>.</span></span>
+        </span>
         <span class="brand-name">JA LONG</span>
       </a>
 
@@ -43,6 +45,7 @@
       </button>
 
       <nav class="site-nav" id="primary-nav" aria-label="Điều hướng chính" data-i18n-aria="navigation">
+        <a href="../index.html" class="nav-back-hub">← Trang nhóm</a>
         <a href="#about" data-i18n="navAbout">Giới thiệu</a>
         <a href="#skills" data-i18n="navSkills">Kỹ năng</a>
         <a href="#work" data-i18n="navWork">Dự án</a>
@@ -59,44 +62,54 @@
     <main id="main">
       <section class="hero section-shell" id="home" aria-labelledby="hero-title">
         <div class="hero-content" data-aos="fade-up" data-aos-duration="750">
-          <p class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="heroEyebrow">SINH VIÊN KỸ THUẬT PHẦN MỀM</span></p>
+          <p class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="heroEyebrow">SINH VIÊN KỸ THUẬT PHẦN MỀM · NHÓM TRƯỞNG</span></p>
           <h1 id="hero-title">
             <span data-i18n="heroHello">Mình là</span><br>
             <span class="hero-name">Gia Long<span class="accent">.</span></span>
           </h1>
           <p class="hero-role"><span class="role-prompt">&gt;</span> <span data-i18n="heroRole">Đang học cách biến ý tưởng thành trải nghiệm web.</span></p>
           <p class="hero-description" data-i18n="heroDescription">
-            Mình là Ja Long — một sinh viên yêu thích công nghệ, đang xây nền tảng phát triển web qua việc học, thực hành và hoàn thiện từng sản phẩm nhỏ.
+            Mình là Ja Long — Nhóm trưởng Left 4 Dev, sinh viên Kỹ thuật Phần mềm đam mê công nghệ, kiến trúc web hiện đại và UI/UX tương tác sống động.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#work">
-              <span data-i18n="heroPrimary">Khám phá portfolio</span><span aria-hidden="true">↘</span>
+            <a class="button button-primary" href="#skills">
+              <span>Xem kỹ năng & kinh nghiệm</span><span aria-hidden="true">↘</span>
             </a>
             <a class="button button-quiet" href="mailto:gialonghoctap999@gmail.com">
               <span data-i18n="heroSecondary">Kết nối với mình</span><span aria-hidden="true">↗</span>
             </a>
           </div>
           <div class="hero-meta">
-            <span class="availability"><span class="availability-dot"></span><span data-i18n="learningStatus">ĐANG HỌC & THỰC HÀNH</span></span>
+            <span class="availability"><span class="availability-dot"></span><span data-i18n="learningStatus">TEAM LEADER @ LEFT 4 DEV</span></span>
             <span class="meta-separator" aria-hidden="true">/</span>
             <span class="meta-handle">@jalong</span>
           </div>
         </div>
 
-        <div class="hero-art" role="img" aria-label="Minh họa chữ viết tắt Gia Long" data-i18n-aria="visualLabel" data-aos="fade-up" data-aos-duration="850" data-aos-delay="120">
+        <div class="hero-art hero-avatar-card" data-aos="fade-up" data-aos-duration="850" data-aos-delay="120">
           <div class="art-grid" aria-hidden="true"></div>
-          <div class="art-topline"><span data-i18n="cardLabel">GÓC LÀM VIỆC</span><span>01 — 04</span></div>
-          <div class="monogram-wrap">
-            <span class="monogram-shadow" aria-hidden="true">JL</span>
-            <span class="monogram">JL<span>.</span></span>
+          <div class="art-topline"><span>JA LONG · PORTFOLIO</span><span>PRO 2026</span></div>
+          
+          <!-- Avatar Glow Frame with Conic Gradient Border -->
+          <div class="avatar-glow-wrapper">
+            <div class="avatar-glow-ring"></div>
+            <div class="avatar-image-container">
+              <img src="assets/avatar.jpg" alt="Chân dung Nhữ Mai Gia Long" class="avatar-img" fetchpriority="high">
+              <div class="avatar-badge">
+                <span class="badge-dot"></span>
+                <span>Team Leader</span>
+              </div>
+            </div>
           </div>
+
           <div class="terminal-card" aria-hidden="true">
             <div class="terminal-bar"><i></i><i></i><i></i><span>jalong.dev</span></div>
             <div class="terminal-code">
-              <p><span class="code-muted">01</span> <span class="code-purple">const</span> <span class="code-white">journey</span> = {</p>
-              <p><span class="code-muted">02</span> &nbsp; <span class="code-blue">curiosity</span>: <span class="code-green">true</span>,</p>
-              <p><span class="code-muted">03</span> &nbsp; <span class="code-blue">learning</span>: <span class="code-green">"in progress"</span></p>
-              <p><span class="code-muted">04</span> }<span class="cursor">_</span></p>
+              <p><span class="code-muted">01</span> <span class="code-purple">const</span> <span class="code-white">leader</span> = {</p>
+              <p><span class="code-muted">02</span> &nbsp; <span class="code-blue">name</span>: <span class="code-green">"Gia Long"</span>,</p>
+              <p><span class="code-muted">03</span> &nbsp; <span class="code-blue">role</span>: <span class="code-green">"Team Leader"</span>,</p>
+              <p><span class="code-muted">04</span> &nbsp; <span class="code-blue">passion</span>: <span class="code-green">"Fullstack Web"</span></p>
+              <p><span class="code-muted">05</span> }<span class="cursor">_</span></p>
             </div>
           </div>
           <span class="art-orbit orbit-one" aria-hidden="true"></span>
@@ -108,8 +121,8 @@
 
       <div class="ticker" aria-label="Các lĩnh vực đang học" data-i18n-aria="tickerLabel">
         <div class="ticker-track" aria-hidden="true">
-          <span>LEARN</span><i>✳</i><span>BUILD</span><i>✳</i><span>IMPROVE</span><i>✳</i>
-          <span>LEARN</span><i>✳</i><span>BUILD</span><i>✳</i><span>IMPROVE</span><i>✳</i>
+          <span>FULLSTACK DEV</span><i>✳</i><span>TEAM LEADERSHIP</span><i>✳</i><span>MODERN UI/UX</span><i>✳</i>
+          <span>FULLSTACK DEV</span><i>✳</i><span>TEAM LEADERSHIP</span><i>✳</i><span>MODERN UI/UX</span><i>✳</i>
         </div>
       </div>
 
@@ -144,28 +157,133 @@
 
       <section class="skills section-space" id="skills" aria-labelledby="skills-title">
         <div class="section-shell">
-          <div class="section-label"><span>02</span><span data-i18n="skillsLabel">/ ĐANG HỌC</span></div>
+          <div class="section-label"><span>02</span><span data-i18n="skillsLabel">/ KỸ NĂNG & CÔNG CỤ</span></div>
           <div class="section-heading">
             <h2 id="skills-title" data-i18n="skillsTitle">Bộ công cụ<br><span>đang phát triển.</span></h2>
-            <p data-i18n="skillsIntro">Mình đang xây nền tảng web và thực hành từng bước. Các công nghệ dưới đây phản ánh những gì mình đang học, không phải mức độ thành thạo.</p>
+            <p>Rê chuột hoặc chạm vào từng thẻ kỹ năng để <strong>lật thẻ xem chi tiết</strong> và xem thanh tiến trình kỹ năng.</p>
           </div>
           <div class="skill-grid">
-            <article class="skill-card" data-aos="fade-up" data-aos-delay="0">
-              <span class="skill-number">01</span><span class="skill-symbol" aria-hidden="true">&lt;/&gt;</span>
-              <h3>HTML</h3><p data-i18n="skillHtml">Cấu trúc nội dung web</p><span class="skill-status" data-i18n="skillLearning">ĐANG HỌC</span>
-            </article>
-            <article class="skill-card" data-aos="fade-up" data-aos-delay="100">
-              <span class="skill-number">02</span><span class="skill-symbol" aria-hidden="true">#</span>
-              <h3>CSS</h3><p data-i18n="skillCss">Bố cục & giao diện responsive</p><span class="skill-status" data-i18n="skillLearning">ĐANG HỌC</span>
-            </article>
-            <article class="skill-card" data-aos="fade-up" data-aos-delay="200">
-              <span class="skill-number">03</span><span class="skill-symbol" aria-hidden="true">{ }</span>
-              <h3>JavaScript</h3><p data-i18n="skillJs">Tương tác cho website</p><span class="skill-status" data-i18n="skillLearning">ĐANG HỌC</span>
-            </article>
-            <article class="skill-card" data-aos="fade-up" data-aos-delay="300">
-              <span class="skill-number">04</span><span class="skill-symbol" aria-hidden="true">⌘</span>
-              <h3>Git & GitHub</h3><p data-i18n="skillGit">Quản lý mã nguồn</p><span class="skill-status" data-i18n="skillLearning">ĐANG HỌC</span>
-            </article>
+            
+            <!-- Skill 01: HTML -->
+            <div class="flip-skill-card" data-aos="fade-up" data-aos-delay="0" tabindex="0" role="button" aria-label="Xem chi tiết kỹ năng HTML">
+              <div class="flip-skill-inner">
+                <div class="flip-skill-front">
+                  <div class="skill-card-head">
+                    <span class="skill-number">01</span>
+                    <span class="skill-status">85%</span>
+                  </div>
+                  <span class="skill-symbol" aria-hidden="true">&lt;/&gt;</span>
+                  <h3>HTML5</h3>
+                  <p>Semantic & Cấu trúc Web</p>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-fill" style="--skill-pct: 85%;"></div>
+                  </div>
+                  <span class="flip-hint">⟳ Lật thẻ xem chi tiết</span>
+                </div>
+                <div class="flip-skill-back">
+                  <span class="skill-badge-mini">HTML5 SEMANTICS</span>
+                  <h4>Nắm vững cấu trúc</h4>
+                  <p>Semantic tags chuẩn SEO, Accessibility ARIA, tối ưu DOM & Responsive Layout.</p>
+                  <ul class="skill-tags-mini">
+                    <li>Semantic</li>
+                    <li>SEO</li>
+                    <li>WCAG</li>
+                  </ul>
+                  <span class="flip-return-hint">⟲ Quay lại</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Skill 02: CSS -->
+            <div class="flip-skill-card" data-aos="fade-up" data-aos-delay="100" tabindex="0" role="button" aria-label="Xem chi tiết kỹ năng CSS">
+              <div class="flip-skill-inner">
+                <div class="flip-skill-front">
+                  <div class="skill-card-head">
+                    <span class="skill-number">02</span>
+                    <span class="skill-status">80%</span>
+                  </div>
+                  <span class="skill-symbol" aria-hidden="true">#</span>
+                  <h3>CSS3 & Animation</h3>
+                  <p>Flexbox, Grid & Hiệu ứng chuyển động</p>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-fill" style="--skill-pct: 80%;"></div>
+                  </div>
+                  <span class="flip-hint">⟳ Lật thẻ xem chi tiết</span>
+                </div>
+                <div class="flip-skill-back">
+                  <span class="skill-badge-mini">MODERN CSS</span>
+                  <h4>Giao diện & Hiệu ứng</h4>
+                  <p>Thành thạo Flexbox, CSS Grid, Keyframes Animation, Glow effect & Glassmorphism.</p>
+                  <ul class="skill-tags-mini">
+                    <li>Grid/Flex</li>
+                    <li>Animation</li>
+                    <li>Design System</li>
+                  </ul>
+                  <span class="flip-return-hint">⟲ Quay lại</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Skill 03: JavaScript -->
+            <div class="flip-skill-card" data-aos="fade-up" data-aos-delay="200" tabindex="0" role="button" aria-label="Xem chi tiết kỹ năng JavaScript">
+              <div class="flip-skill-inner">
+                <div class="flip-skill-front">
+                  <div class="skill-card-head">
+                    <span class="skill-number">03</span>
+                    <span class="skill-status">75%</span>
+                  </div>
+                  <span class="skill-symbol" aria-hidden="true">{ }</span>
+                  <h3>JavaScript (ES6+)</h3>
+                  <p>DOM, Async/Await & Tương tác động</p>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-fill" style="--skill-pct: 75%;"></div>
+                  </div>
+                  <span class="flip-hint">⟳ Lật thẻ xem chi tiết</span>
+                </div>
+                <div class="flip-skill-back">
+                  <span class="skill-badge-mini">ES6+ CORE</span>
+                  <h4>Tương tác thông minh</h4>
+                  <p>Xử lý sự kiện, bất đồng bộ API, tối ưu hiệu năng và logic ứng dụng web tương tác mượt.</p>
+                  <ul class="skill-tags-mini">
+                    <li>DOM API</li>
+                    <li>Async/Fetch</li>
+                    <li>OOP</li>
+                  </ul>
+                  <span class="flip-return-hint">⟲ Quay lại</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Skill 04: Git & GitHub -->
+            <div class="flip-skill-card" data-aos="fade-up" data-aos-delay="300" tabindex="0" role="button" aria-label="Xem chi tiết kỹ năng Git">
+              <div class="flip-skill-inner">
+                <div class="flip-skill-front">
+                  <div class="skill-card-head">
+                    <span class="skill-number">04</span>
+                    <span class="skill-status">85%</span>
+                  </div>
+                  <span class="skill-symbol" aria-hidden="true">⌘</span>
+                  <h3>Git & Teamwork</h3>
+                  <p>Branching, Pull Request & CI/CD</p>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-fill" style="--skill-pct: 85%;"></div>
+                  </div>
+                  <span class="flip-hint">⟳ Lật thẻ xem chi tiết</span>
+                </div>
+                <div class="flip-skill-back">
+                  <span class="skill-badge-mini">COLLABORATION</span>
+                  <h4>Quản lý nhóm hiệu quả</h4>
+                  <p>Git Flow chuẩn, quản lý conflict, code review, merge PR và phân công dự án nhóm.</p>
+                  <ul class="skill-tags-mini">
+                    <li>Git Flow</li>
+                    <li>PR Review</li>
+                    <li>GitHub Pages</li>
+                  </ul>
+                  <span class="flip-return-hint">⟲ Quay lại</span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
