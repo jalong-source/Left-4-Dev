@@ -30,30 +30,55 @@ menuToggle?.addEventListener('click', () => {
 	setMenuOpen(!isOpen);
 });
 
-/* Đóng menu khi click vào bất kỳ link nào trong nav */
-siteNav?.querySelectorAll('a').forEach((link) => {
-	link.addEventListener('click', () => setMenuOpen(false));
+/* ---------- Dropdown menu chọn thành viên ---------- */
+const navDropdown = document.querySelector('.nav-dropdown');
+const dropdownTrigger = document.querySelector('.dropdown-trigger');
+
+function setDropdownOpen(isOpen) {
+	navDropdown?.classList.toggle('is-open', isOpen);
+	dropdownTrigger?.setAttribute('aria-expanded', String(isOpen));
+}
+
+dropdownTrigger?.addEventListener('click', (e) => {
+	e.stopPropagation();
+	const isOpen = navDropdown?.classList.contains('is-open');
+	setDropdownOpen(!isOpen);
 });
 
-/* Đóng menu khi nhấn Escape */
+/* Đóng menu khi click vào bất kỳ link nào trong nav */
+siteNav?.querySelectorAll('a').forEach((link) => {
+	link.addEventListener('click', () => {
+		setMenuOpen(false);
+		setDropdownOpen(false);
+	});
+});
+
+/* Đóng menu và dropdown khi nhấn Escape */
 document.addEventListener('keydown', (event) => {
 	if (event.key === 'Escape') {
-		const isOpen = menuToggle?.getAttribute('aria-expanded') === 'true';
-		if (isOpen) {
+		const isNavOpen = menuToggle?.getAttribute('aria-expanded') === 'true';
+		if (isNavOpen) {
 			setMenuOpen(false);
-			menuToggle?.focus(); /* Trả focus về nút hamburger */
+			menuToggle?.focus();
+		}
+		if (navDropdown?.classList.contains('is-open')) {
+			setDropdownOpen(false);
+			dropdownTrigger?.focus();
 		}
 	}
 });
 
-/* Đóng menu khi click ra ngoài vùng header (mobile) */
+/* Đóng menu và dropdown khi click ra ngoài */
 document.addEventListener('click', (event) => {
-	const isOpen = menuToggle?.getAttribute('aria-expanded') === 'true';
-	if (!isOpen) return;
-
+	const isNavOpen = menuToggle?.getAttribute('aria-expanded') === 'true';
 	const header = document.querySelector('.site-header');
-	if (header && !header.contains(event.target)) {
+
+	if (isNavOpen && header && !header.contains(event.target)) {
 		setMenuOpen(false);
+	}
+
+	if (navDropdown?.classList.contains('is-open') && !navDropdown.contains(event.target)) {
+		setDropdownOpen(false);
 	}
 });
 

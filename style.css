@@ -104,6 +104,110 @@ img { display: block; max-width: 100%; }
 .nav-contact:hover { transform: translateY(-2px); background: var(--ink); color: var(--white); }
 .menu-toggle { display: none; z-index: 11; }
 
+/* ---------- Dropdown menu chọn thành viên ---------- */
+.nav-dropdown {
+  position: relative;
+}
+.dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.85rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  transition: color var(--transition-speed) var(--ease-smooth), background-color var(--transition-speed) var(--ease-smooth), border-color var(--transition-speed) var(--ease-smooth);
+}
+.dropdown-trigger:hover,
+.dropdown-trigger:focus-visible,
+.nav-dropdown:focus-within .dropdown-trigger {
+  color: var(--blue);
+  background: rgba(0, 71, 255, 0.05);
+  border-color: rgba(0, 71, 255, 0.15);
+}
+.dropdown-trigger .chevron {
+  font-size: 0.75rem;
+  transition: transform var(--transition-speed) var(--ease-smooth);
+}
+.nav-dropdown.is-open .dropdown-trigger .chevron,
+.nav-dropdown:hover .dropdown-trigger .chevron {
+  transform: rotate(180deg);
+}
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  min-width: 280px;
+  padding: 0.5rem;
+  background: var(--white);
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 32px rgba(22, 28, 25, 0.12), 0 2px 6px rgba(22, 28, 25, 0.04);
+  border-radius: 4px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity var(--transition-speed) var(--ease-smooth), transform var(--transition-speed) var(--ease-smooth), visibility 0s linear var(--transition-speed);
+  z-index: 20;
+}
+.nav-dropdown.is-open .dropdown-menu,
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+.dropdown-menu a {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.7rem 0.85rem;
+  border-radius: 3px;
+  color: var(--ink) !important;
+  text-decoration: none;
+  transition: background-color var(--transition-speed) var(--ease-smooth), transform var(--transition-speed) var(--ease-smooth);
+}
+.dropdown-menu a:hover,
+.dropdown-menu a:focus-visible {
+  background: var(--paper);
+  transform: translateX(4px);
+}
+.member-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 2px;
+  background: rgba(0, 71, 255, 0.08);
+  color: var(--blue);
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: 'Space Grotesk', sans-serif;
+  flex-shrink: 0;
+}
+.member-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  text-align: left;
+}
+.member-meta strong {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.member-meta small {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
 .hero {
   position: relative;
   display: grid;
@@ -185,12 +289,61 @@ h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
 .team-heading h2 span { color: var(--blue); }
 .team-heading > p { max-width: 360px; margin: 0 0 0.45rem; color: var(--muted); font-size: 1rem; line-height: 1.75; }
 .team-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); }
-.team-member { min-width: 0; min-height: 155px; padding: 1.2rem 1.25rem 1rem 0; }
+.team-member {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 180px;
+  padding: 1.4rem 1.25rem 1.2rem 0;
+  color: inherit;
+  text-decoration: none;
+  transition: transform var(--transition-speed) var(--ease-smooth), background-color var(--transition-speed) var(--ease-smooth);
+}
 .team-member + .team-member { padding-left: 1.25rem; border-left: 1px solid var(--line); }
+.team-member-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .team-number { color: var(--blue); font-size: 0.74rem; font-weight: 700; }
-.team-member h3 { margin: 1rem 0 0.45rem; font-size: 1.2rem; font-weight: 600; line-height: 1.3; overflow-wrap: anywhere; }
+.member-link-icon {
+  font-size: 1rem;
+  color: var(--muted);
+  opacity: 0.6;
+  transition: transform var(--transition-speed) var(--ease-smooth), color var(--transition-speed) var(--ease-smooth), opacity var(--transition-speed) var(--ease-smooth);
+}
+.team-member h3 { margin: 1.1rem 0 0.35rem; font-size: 1.2rem; font-weight: 600; line-height: 1.3; overflow-wrap: anywhere; color: var(--ink); }
 .team-member p { margin: 0; color: var(--muted); font-size: 0.82rem; }
 .team-lead p { color: var(--blue); font-weight: 700; }
+.team-view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--blue);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity var(--transition-speed) var(--ease-smooth), transform var(--transition-speed) var(--ease-smooth);
+}
+.team-member:hover,
+.team-member:focus-visible {
+  transform: translateY(-3px);
+}
+.team-member:hover .member-link-icon,
+.team-member:focus-visible .member-link-icon {
+  color: var(--blue);
+  opacity: 1;
+  transform: translate(2px, -2px);
+}
+.team-member:hover .team-view-btn,
+.team-member:focus-visible .team-view-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .projects { position: relative; width: 100%; max-width: none; padding-inline: max(var(--page-gutter), calc((100vw - 1440px) / 2)); background: var(--paper-deep); }
 .heading-row { display: flex; align-items: end; justify-content: space-between; gap: 3rem; padding: 3rem 0 4rem; }
@@ -321,28 +474,53 @@ body.aos-ready [data-aos][data-aos-delay="150"] { transition-delay: 0.15s; }
   }
   .site-nav.is-open {
     display: flex;
-    max-height: 22rem; /* đủ cho 4–5 links */
+    max-height: 40rem; /* Đủ chỗ cho dropdown menu thành viên và các liên kết */
     opacity: 1;
     visibility: visible;
+    overflow-y: auto;
     transition:
       max-height var(--transition-speed) var(--ease-smooth),
       opacity   var(--transition-speed) var(--ease-smooth),
       visibility 0s linear 0s;
   }
-  .site-nav > a {
-    padding: 0.9rem 0;
+  .site-nav > a,
+  .site-nav > .nav-dropdown {
+    padding: 0.75rem 0;
     transform: translateY(-4px);
     opacity: 0;
     transition: opacity 0.3s var(--ease-smooth), transform 0.3s var(--ease-smooth);
   }
-  .site-nav.is-open > a {
+  .site-nav.is-open > a,
+  .site-nav.is-open > .nav-dropdown {
     transform: translateY(0);
     opacity: 1;
   }
-  .site-nav.is-open > a:nth-child(1) { transition-delay: 0.04s; }
-  .site-nav.is-open > a:nth-child(2) { transition-delay: 0.08s; }
-  .site-nav.is-open > a:nth-child(3) { transition-delay: 0.12s; }
-  .site-nav.is-open > a:nth-child(4) { transition-delay: 0.16s; }
+  .site-nav.is-open > :nth-child(1) { transition-delay: 0.04s; }
+  .site-nav.is-open > :nth-child(2) { transition-delay: 0.08s; }
+  .site-nav.is-open > :nth-child(3) { transition-delay: 0.12s; }
+  .site-nav.is-open > :nth-child(4) { transition-delay: 0.16s; }
+  .site-nav.is-open > :nth-child(5) { transition-delay: 0.20s; }
+
+  /* Dropdown trên mobile: hiển thị inline sạch đẹp */
+  .nav-dropdown { width: 100%; border-bottom: 1px solid var(--line); padding-bottom: 0.5rem; }
+  .dropdown-trigger { width: 100%; justify-content: space-between; padding: 0.6rem 0; font-size: 0.95rem; }
+  .dropdown-menu {
+    position: static;
+    display: none;
+    width: 100%;
+    min-width: 0;
+    box-shadow: none;
+    border: 1px solid var(--line);
+    background: rgba(240, 243, 236, 0.6);
+    margin-top: 0.4rem;
+    transform: none !important;
+  }
+  .nav-dropdown.is-open .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    visibility: visible;
+  }
   .site-nav .nav-contact { justify-content: space-between; margin-top: 0.5rem; padding-inline: 0.9rem; }
 
   /* ---------- Hero mobile ---------- */

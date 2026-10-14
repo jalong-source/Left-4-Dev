@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Phạm Thành Danh – Fullstack Developer | Portfolio</title>
+<meta name="description" content="Portfolio của Phạm Thành Danh – sinh viên Công nghệ Thông tin, Đại học Lạc Hồng, định hướng Fullstack Developer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+<!-- AOS – Animate On Scroll -->
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<div class="blob b1"></div><div class="blob b2"></div>
+
+<!-- ===== HEADER ===== -->
+<header id="header">
+  <nav class="container nav">
+    <a href="#hero" class="logo grad-text" id="logo">&lt;TD /&gt;</a>
+    <button class="hamburger" id="menu-toggle" aria-label="Mở menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<!-- ===== MENU TOÀN MÀN HÌNH ===== -->
+<nav class="menu-overlay" id="nav-links" aria-label="Menu chính">
+  <ul class="nav-links">
+    <li style="--i:0"><a href="#hero" id="nav-home"><small>01</small>Trang chủ</a></li>
+    <li style="--i:1"><a href="#about" id="nav-about"><small>02</small>Giới thiệu</a></li>
+    <li style="--i:2"><a href="#skills" id="nav-skills"><small>03</small>Kỹ năng</a></li>
+    <li style="--i:3"><a href="#projects" id="nav-projects"><small>04</small>Dự án</a></li>
+    <li style="--i:4"><a href="#education" id="nav-education"><small>05</small>Học vấn</a></li>
+    <li style="--i:5"><a href="#contact" id="nav-contact"><small>06</small>Liên hệ</a></li>
+  </ul>
+</nav>
+
+<main>
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge glass" data-aos="fade-down" data-aos-delay="200">Sẵn sàng cho cơ hội thực tập</div>
+      <h1 data-aos="fade-up" data-aos-delay="300">Xin chào, tôi là<br><span class="grad-text">Phạm Thành Danh</span></h1>
+      <div class="typing-wrap" data-aos="fade-up" data-aos-delay="500"><span class="typing" id="typing-text">Tôi là Fullstack Developer</span></div>
+      <p class="lead" data-aos="fade-up" data-aos-delay="600">Sinh viên Công nghệ Thông tin tại Đại học Lạc Hồng. Tôi thích biến ý tưởng thành những sản phẩm web đẹp, nhanh và hữu ích — từ giao diện đến server.</p>
+      <div class="btns" data-aos="fade-up" data-aos-delay="700">
+        <a href="#projects" class="btn btn-primary" id="btn-projects">Xem dự án</a>
+        <a href="#contact" class="btn btn-ghost" id="btn-contact">Liên hệ ngay</a>
+      </div>
+    </div>
+    <div class="avatar-wrap" data-aos="zoom-in" data-aos-delay="400" data-aos-duration="1000">
+      <div class="avatar-ring"></div>
+      <div class="avatar-img-box">
+        <img src="avatar.png" alt="Ảnh đại diện Phạm Thành Danh" width="400" height="400" loading="eager">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="container about-grid">
+    <div class="flip-card" id="profile-card" data-aos="fade-right" data-aos-duration="800">
+      <div class="flip-inner">
+        <div class="card-front">
+          <img src="avatar.png" alt="Phạm Thành Danh" width="150" height="150" loading="lazy">
+          <h3>Phạm Thành Danh</h3>
+          <small>Fullstack Developer</small>
+          <div class="hint">↻ Di chuột để lật thẻ</div>
+        </div>
+        <div class="card-back">
+          <h3>Kết nối với tôi</h3>
+          <a href="https://facebook.com/" target="_blank" id="back-facebook">📘 Facebook</a>
+          <a href="https://github.com/" target="_blank" id="back-github">🐙 GitHub</a>
+          <a href="mailto:phamthanhdanh@example.com" id="back-email">✉️ Email</a>
+          <a href="https://zalo.me/" target="_blank" id="back-zalo">💬 Zalo</a>
+        </div>
+      </div>
+    </div>
+    <div class="about-text" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+      <h2 class="section-title">Về <span>tôi</span></h2>
+      <p>Tôi là sinh viên năm 2 ngành Công nghệ Thông tin tại Đại học Lạc Hồng (Biên Hòa, Đồng Nai). Niềm đam mê với lập trình bắt đầu từ những trang HTML đầu tiên, và giờ đây tôi đang theo đuổi con đường trở thành một <strong>Fullstack Developer</strong>.</p>
+      <p>Tôi thích viết code sạch, tối ưu hiệu năng và luôn chú trọng trải nghiệm người dùng. Ngoài giờ học, tôi tự làm các dự án cá nhân và tìm hiểu công nghệ mới.</p>
+      <div class="info-grid">
+        <div class="info-item glass" data-aos="fade-up" data-aos-delay="100"><span>Họ và tên</span><strong>Phạm Thành Danh</strong></div>
+        <div class="info-item glass" data-aos="fade-up" data-aos-delay="200"><span>Ngày sinh</span><strong>14/04/2007</strong></div>
+        <div class="info-item glass" data-aos="fade-up" data-aos-delay="300"><span>Trường</span><strong>Đại học Lạc Hồng</strong></div>
+        <div class="info-item glass" data-aos="fade-up" data-aos-delay="400"><span>Ngành học</span><strong>Công nghệ Thông tin</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills" class="skills">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Kỹ năng <span>IT</span></h2>
+    <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Các công nghệ tôi đã học và sử dụng trong dự án học tập lẫn cá nhân.</p>
+    <div class="skills-grid">
+      <div class="skill-box glass" data-aos="fade-right" data-aos-duration="800">
+        <h3>🎨 Frontend</h3>
+        <div class="skill"><div class="skill-label"><span>HTML5</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" style="--level:90%"></div></div></div>
+        <div class="skill"><div class="skill-label"><span>CSS3 / Animation</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" style="--level:85%"></div></div></div>
+        <div class="skill"><div class="skill-label"><span>JavaScript (ES6+)</span><span>75%</span></div><div class="skill-bar"><div class="skill-fill" style="--level:75%"></div></div></div>
+        <div class="skill"><div class="skill-label"><span>ReactJS</span><span>65%</span></div><div class="skill-bar"><div class="skill-fill" style="--level:65%"></div></div></div>
+        <div class="skill"><div class="skill-label"><span>Tailwind / Bootstrap</span><span>70%</span></div><div class="skill-bar"><div class="skill-fill" style="--level:70%"></div></div></div>
+      </div>
+      <div class="skill-box glass" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+        <h3>⚙️ Backend &amp; Công cụ</h3>
+        <div class="skill"><div class="skill-label"><span>Node.js / Express</span><span>65%</span></div><div class="skill-bar"><div class="skill-fill" style="--level:65%"></div></div></div>
+        <div class="skill"><div class="skill-label"><span>C# / ASP.NET</span><span>60%</span></div><div class="skill-bar"><div class="skill-fill" style="--level:60%"></div></div></div>
+        <div class="skill"><div class="skill-label"><span>SQL Server / MySQL</span><span>70%</span></div><div class="skill-bar"><div class="skill-fill" style="--level:70%"></div></div></div>
+        <div class="skill"><div class="skill-label"><span>MongoDB</span><span>55%</span></div><div class="skill-bar"><div class="skill-fill" style="--level:55%"></div></div></div>
+        <div class="skill"><div class="skill-label"><span>Git / GitHub</span><span>80%</span></div><div class="skill-bar"><div class="skill-fill" style="--level:80%"></div></div></div>
+      </div>
+    </div>
+    <div class="tags" data-aos="fade-up" data-aos-delay="300">
+      <span class="tag glass">REST API</span><span class="tag glass">Responsive Design</span><span class="tag glass">Figma</span>
+      <span class="tag glass">VS Code</span><span class="tag glass">Postman</span><span class="tag glass">Python</span>
+      <span class="tag glass">C / C++</span><span class="tag glass">OOP</span><span class="tag glass">Cấu trúc dữ liệu &amp; Giải thuật</span>
+      <span class="tag glass">AI Prompting</span><span class="tag glass">Làm việc nhóm</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PARALLAX ===== -->
+<section class="parallax" id="quote">
+  <blockquote data-aos="zoom-in" data-aos-duration="1000">"Code là thơ, và mỗi dòng code là một bước gần hơn tới ước mơ."
+    <cite>— Phạm Thành Danh</cite>
+  </blockquote>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Dự án <span>nổi bật</span></h2>
+    <p class="section-sub" data-aos="fade-up" data-aos-delay="100">Di chuột vào từng thẻ để xem chi tiết.</p>
+    <div class="projects-grid">
+      <div class="project-card flip-card" tabindex="0" style="--thumb: linear-gradient(135deg,#0e7490,#1e1b4b)" data-aos="fade-up" data-aos-delay="100">
+        <div class="flip-inner">
+          <div class="card-front"><div class="emoji">✨</div><h3>CSS Animations Lab</h3><p>6 hiệu ứng CSS hiện đại cho website</p></div>
+          <div class="card-back"><h3>CSS Animations Lab</h3><p>FAB pulse, Card Flip 3D, Typing, Parallax, Hamburger và Skill Bar — tối ưu bằng GPU.</p>
+            <div class="stack"><span>HTML</span><span>CSS</span><span>Keyframes</span></div>
+            <a href="../css-animations/index.html" id="project-css">Xem demo →</a></div>
+        </div>
+      </div>
+      <div class="project-card flip-card" tabindex="0" style="--thumb: linear-gradient(135deg,#6d28d9,#be185d)" data-aos="fade-up" data-aos-delay="250">
+        <div class="flip-inner">
+          <div class="card-front"><div class="emoji">🛒</div><h3>E-Shop Mini</h3><p>Website bán hàng fullstack</p></div>
+          <div class="card-back"><h3>E-Shop Mini</h3><p>Giỏ hàng, đăng nhập JWT, quản lý sản phẩm và đơn hàng cho admin.</p>
+            <div class="stack"><span>React</span><span>Node.js</span><span>MongoDB</span></div>
+            <a href="https://github.com/" target="_blank" id="project-shop">GitHub →</a></div>
+        </div>
+      </div>
+      <div class="project-card flip-card" tabindex="0" style="--thumb: linear-gradient(135deg,#047857,#0e7490)" data-aos="fade-up" data-aos-delay="400">
+        <div class="flip-inner">
+          <div class="card-front"><div class="emoji">📚</div><h3>Quản lý Thư viện</h3><p>Ứng dụng quản lý mượn trả sách</p></div>
+          <div class="card-back"><h3>Quản lý Thư viện</h3><p>CRUD sách, độc giả, phiếu mượn; thống kê và xuất báo cáo.</p>
+            <div class="stack"><span>C#</span><span>ASP.NET</span><span>SQL Server</span></div>
+            <a href="https://github.com/" target="_blank" id="project-library">GitHub →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EDUCATION ===== -->
+<section id="education">
+  <div class="container">
+    <h2 class="section-title" style="text-align:center" data-aos="fade-up">Hành trình <span>học tập</span></h2>
+    <p class="section-sub" style="margin-inline:auto;text-align:center" data-aos="fade-up" data-aos-delay="100">Những cột mốc trên con đường trở thành lập trình viên.</p>
+    <div class="timeline">
+      <div class="tl-item" data-aos="fade-right" data-aos-delay="100"><div class="glass"><time>2025 – Nay</time><h3>Đại học Lạc Hồng</h3><p>Sinh viên ngành Công nghệ Thông tin. Học phần nổi bật: Thiết kế Web, Lập trình hướng đối tượng, Cơ sở dữ liệu.</p></div></div>
+      <div class="tl-item" data-aos="fade-right" data-aos-delay="250"><div class="glass"><time>2025</time><h3>Dự án cá nhân đầu tiên</h3><p>Tự học HTML, CSS, JavaScript và xây dựng website giới thiệu bản thân.</p></div></div>
+      <div class="tl-item" data-aos="fade-right" data-aos-delay="400"><div class="glass"><time>2022 – 2025</time><h3>Trung học Phổ thông</h3><p>Bắt đầu đam mê tin học và lập trình qua các bài tập Pascal, C++.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-box glass" data-aos="zoom-in-up" data-aos-duration="800">
+      <h2 class="section-title">Cùng <span>hợp tác</span> nhé!</h2>
+      <p class="section-sub" style="margin:auto">Tôi luôn sẵn sàng cho cơ hội thực tập, dự án freelance hoặc đơn giản là một cuộc trò chuyện về công nghệ.</p>
+      <div class="contact-links">
+        <a href="mailto:phamthanhdanh@example.com" class="btn btn-primary" id="contact-email">✉️ Gửi Email</a>
+        <a href="https://github.com/" target="_blank" class="btn btn-ghost" id="contact-github">🐙 GitHub</a>
+        <a href="https://facebook.com/" target="_blank" class="btn btn-ghost" id="contact-facebook">📘 Facebook</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer data-aos="fade-up" data-aos-offset="0">© 2026 Phạm Thành Danh · Đại học Lạc Hồng · Made with ❤️ &amp; CSS Animation</footer>
+
+<!-- ===== FAB ZALO ===== -->
+<a href="https://zalo.me/" target="_blank" class="fab" id="fab-zalo" aria-label="Chat qua Zalo">Zalo</a>
+
+<!-- ===== BACK TO TOP ===== -->
+<button class="back-top" id="back-top" aria-label="Về đầu trang">↑</button>
+
+<!-- AOS Library -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  // ===== AOS Initialization =====
+  AOS.init({
+    duration: 700,
+    easing: 'ease-out-cubic',
+    once: true,
+    offset: 80,
+    mirror: false,
+    anchorPlacement: 'top-bottom',
+  });
+
+  // ===== Hamburger toggle =====
+  const toggle = document.getElementById('menu-toggle');
+  const links = document.getElementById('nav-links');
+  const setMenu = open => {
+    toggle.classList.toggle('active', open);
+    links.classList.toggle('open', open);
+    document.body.classList.toggle('menu-open', open);
+    toggle.setAttribute('aria-expanded', open);
+    toggle.setAttribute('aria-label', open ? 'Đóng menu' : 'Mở menu');
+  };
+  toggle.addEventListener('click', () => setMenu(!toggle.classList.contains('active')));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+
+  // ===== Header nền mờ khi cuộn =====
+  const header = document.getElementById('header');
+  const scrollProgress = document.getElementById('scroll-progress');
+
+  // ===== Scroll Progress + Header (single rAF-throttled handler) =====
+  let ticking = false;
+  const onScroll = () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const sy = window.scrollY;
+        header.classList.toggle('scrolled', sy > 30);
+        // Scroll progress
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        scrollProgress.style.width = h > 0 ? ((sy / h) * 100) + '%' : '0%';
+        // Back-to-top visibility
+        backTop.classList.toggle('visible', sy > 400);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  };
+  addEventListener('scroll', onScroll, { passive: true });
+
+  // ===== Back To Top =====
+  const backTop = document.getElementById('back-top');
+  backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // ===== Kích hoạt Skill Bar khi cuộn tới =====
+  const skillsSection = document.getElementById('skills');
+  const skillIO = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in-view'); skillIO.unobserve(e.target); }
+    });
+  }, { threshold: 0.2 });
+  skillIO.observe(skillsSection);
+
+  // ===== Mobile: Tap to flip cards (touch devices) =====
+  if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+    document.querySelectorAll('.flip-card').forEach(card => {
+      // Replace hover hint with tap hint on mobile
+      const hint = card.querySelector('.hint');
+      if (hint) hint.textContent = '👆 Nhấn để lật thẻ';
+      
+      card.addEventListener('click', e => {
+        // Prevent link clicks from triggering flip
+        if (e.target.closest('a')) return;
+        card.classList.toggle('touch-flipped');
+      });
+    });
+  }
+
+  // ===== Stagger animation for tags =====
+  const tagsContainer = document.querySelector('.tags');
+  if (tagsContainer) {
+    const tagIO = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const tags = e.target.querySelectorAll('.tag');
+          tags.forEach((tag, i) => {
+            tag.style.opacity = '0';
+            tag.style.transform = 'translateY(16px) scale(.9)';
+            tag.style.transition = `opacity .5s cubic-bezier(.16,1,.3,1) ${i * 60}ms, transform .5s cubic-bezier(.16,1,.3,1) ${i * 60}ms`;
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                tag.style.opacity = '1';
+                tag.style.transform = 'none';
+              });
+            });
+          });
+          tagIO.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    tagIO.observe(tagsContainer);
+  }
+</script>
+</body>
+</html>

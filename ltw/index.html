@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nguyễn Hữu Thanh Trường | Portfolio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Header + Hamburger -->
+<header class="nav">
+  <a href="#home" class="logo">NHTT<span>.</span></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <nav class="menu" id="menu">
+    <a href="#home">Trang chủ</a>
+    <a href="#about">Giới thiệu</a>
+    <a href="#skills">Kỹ năng</a>
+    <a href="#projects">Dự án</a>
+    <a href="#contact">Liên hệ</a>
+  </nav>
+</header>
+
+<!-- Hero + Parallax + Typing -->
+<section class="hero" id="home">
+  <div class="layer l1" data-speed="0.15"></div>
+  <div class="layer l2" data-speed="0.3"></div>
+  <div class="layer l3" data-speed="0.5"></div>
+  <div class="hero-content">
+    <p class="hello">Xin chào, tôi là</p>
+    <h1>Nguyễn Hữu Thanh Trường</h1>
+    <p class="typing">Tôi là <span id="typed"></span><span class="cursor">|</span></p>
+    <a href="#contact" class="btn">Liên hệ với tôi</a>
+  </div>
+</section>
+
+<!-- About + Flip card -->
+<section class="section" id="about">
+  <h2>Giới thiệu</h2>
+  <div class="about-wrap">
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <div class="avatar">T</div>
+          <h3>Nguyễn Hữu Thanh Trường</h3>
+          <p>Sinh viên CNTT</p>
+          <small>Rê chuột / chạm để lật ↻</small>
+        </div>
+        <div class="flip-back">
+          <h3>Thông tin nhân sự</h3>
+          <ul>
+            <li><b>MSSV:</b> 125001054</li>
+            <li><b>Lớp:</b> 25CT112</li>
+            <li><b>Vị trí:</b> Lập trình viên Web</li>
+            <li><b>Email:</b> email@example.com</li>
+            <li><b>Địa chỉ:</b> Việt Nam</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="about-text">
+      <p>Tôi là Nguyễn Hữu Thanh Trường, sinh viên ngành Công nghệ thông tin, đam mê xây dựng website và ứng dụng thân thiện với người dùng. Tôi luôn tìm tòi công nghệ mới và thích biến ý tưởng thành sản phẩm thực tế.</p>
+      <p>Mục tiêu: trở thành lập trình viên Fullstack chuyên nghiệp, làm việc trong môi trường sáng tạo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section class="section alt" id="skills">
+  <h2>Kỹ năng</h2>
+  <div class="skills">
+    <div class="skill"><div class="info"><span>HTML</span><span>90%</span></div><div class="bar"><div class="fill" data-level="90"></div></div></div>
+    <div class="skill"><div class="info"><span>CSS</span><span>85%</span></div><div class="bar"><div class="fill" data-level="85"></div></div></div>
+    <div class="skill"><div class="info"><span>JavaScript</span><span>75%</span></div><div class="bar"><div class="fill" data-level="75"></div></div></div>
+    <div class="skill"><div class="info"><span>C / C++</span><span>70%</span></div><div class="bar"><div class="fill" data-level="70"></div></div></div>
+    <div class="skill"><div class="info"><span>SQL</span><span>65%</span></div><div class="bar"><div class="fill" data-level="65"></div></div></div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section class="section" id="projects">
+  <h2>Dự án</h2>
+  <div class="projects">
+    <article class="project"><h3>Website Portfolio</h3><p>Trang cá nhân với nhiều hiệu ứng CSS animation.</p></article>
+    <article class="project"><h3>Ứng dụng Quản lý</h3><p>Quản lý sinh viên bằng C++/SQL (mẫu).</p></article>
+    <article class="project"><h3>Landing Page</h3><p>Giao diện responsive cho cửa hàng (mẫu).</p></article>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section alt" id="contact">
+  <h2>Liên hệ</h2>
+  <p class="center">Email: email@example.com &nbsp;|&nbsp; SĐT: 0123 456 789 &nbsp;|&nbsp; GitHub: github.com/username</p>
+</section>
+
+<footer>© 2026 Nguyễn Hữu Thanh Trường</footer>
+
+<!-- FAB -->
+<div class="fab" id="fab">
+  <a href="mailto:email@example.com" class="fab-item" style="--i:1" title="Email">✉</a>
+  <a href="https://github.com" target="_blank" class="fab-item" style="--i:2" title="GitHub">⌥</a>
+  <a href="#home" class="fab-item" style="--i:3" title="Lên đầu trang">↑</a>
+  <button class="fab-main" id="fabMain" aria-label="Mở menu nhanh">+</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

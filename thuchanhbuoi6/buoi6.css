@@ -1,0 +1,644 @@
+/* ============================================================
+   BUỔI 6 – CSS TRANSITION, @KEYFRAMES & AOS SCROLL REVEAL
+   File: buoi6.css | Tích hợp vào: buoi6.html (Portfolio)
+   ============================================================
+
+   CÁCH TÍCH HỢP AOS VÀO HTML QUA CDN:
+   ─────────────────────────────────────
+   1) Thêm vào <head> (CSS):
+      <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+   2) Thêm trước </body> (JS):
+      <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+      <script>
+        AOS.init({
+          duration: 650,          ← thời gian animation (ms)
+          easing: 'ease-out-cubic', ← hàm timing
+          once: true,             ← chỉ chạy 1 lần khi scroll vào
+          offset: 80,             ← trigger trước 80px
+        });
+      </script>
+
+   3) Gắn data-aos vào thẻ HTML bất kỳ:
+      <section data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
+      <div     data-aos="fade-right" data-aos-delay="100">
+      <article data-aos="flip-left"  data-aos-delay="300">
+
+   CÁC GIÁ TRỊ data-aos PHỔ BIẾN:
+      fade-in | fade-up | fade-down | fade-right | fade-left
+      zoom-in | zoom-in-up | flip-left | flip-up
+============================================================ */
+
+
+/* ============================================================
+   1. DESIGN TOKENS – BIẾN CSS (Đồng bộ với portfolio)
+   ============================================================ */
+:root {
+    /* Màu chủ đạo portfolio */
+    --primary: #00f2fe;
+    --primary-glow: rgba(0, 242, 254, 0.28);
+    --secondary: #4facfe;
+
+    /* Màu nền & card */
+    --bg-main: #080d18;
+    --bg-card: #0f1626;
+
+    /* Màu chữ */
+    --text-white: #f0f6ff;
+    --text-muted: #7a8aaa;
+
+    /* Button tokens */
+    --btn-radius: 12px;
+    --btn-duration: 0.30s;
+
+    /* ✨ BUỔI 6 – KỸ THUẬT 1: cubic-bezier
+     cubic-bezier(x1, y1, x2, y2)
+     y1 = 1.56 → vượt quá 1.0 → hiệu ứng "vọt lên" rồi dừng (overshoot)
+     Tạo cảm giác đàn hồi, vật lý tự nhiên hơn ease/ease-out */
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* Shadow */
+    --shadow-rest: 0 4px 16px rgba(0, 242, 254, 0.28);
+    --shadow-hover: 0 10px 32px rgba(0, 242, 254, 0.52);
+}
+
+
+/* ============================================================
+   2. BUỔI 6 – KỸ THUẬT 1: CSS TRANSITION + cubic-bezier
+      Áp dụng cho Button "Gửi tin nhắn" & các nút trong portfolio
+   ============================================================ */
+
+/* --- Nút chính (primary) --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 12px 26px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    letter-spacing: 0.02em;
+    color: var(--bg-main);
+    border: none;
+    border-radius: var(--btn-radius);
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    box-shadow: var(--shadow-rest);
+
+    /* Trạng thái gốc: không nâng, không thu nhỏ */
+    transform: translateY(0px) scale(1);
+
+    /* ✨ TRANSITION với cubic-bezier
+     - transform   → nâng lên/xuống (hiệu ứng float)
+     - box-shadow  → bóng lan ra/co lại theo
+     Cùng dùng var(--ease-spring) để đồng bộ chuyển động */
+    transition:
+        transform var(--btn-duration) var(--ease-spring),
+        box-shadow var(--btn-duration) var(--ease-out),
+        filter 0.2s ease;
+}
+
+/* HOVER: nâng lên 3px + bóng đậm + sáng hơn */
+.btn:hover {
+    transform: translateY(-3px) scale(1);
+    box-shadow: var(--shadow-hover);
+    filter: brightness(1.08);
+}
+
+/* ACTIVE (click): thu nhỏ → cảm giác "đã bấm vào"
+   Dùng ease-in (không phải spring) để nhấn xuống nhanh hơn */
+.btn:active {
+    transform: translateY(0px) scale(0.96);
+    box-shadow: 0 2px 8px rgba(0, 242, 254, 0.2);
+    filter: brightness(0.95);
+    transition:
+        transform 0.10s ease-in,
+        box-shadow 0.10s ease-in;
+}
+
+/* Focus: accessibility */
+.btn:focus-visible {
+    outline: 3px solid rgba(0, 242, 254, 0.5);
+    outline-offset: 3px;
+}
+
+/* --- Biến thể Outline --- */
+.btn--outline {
+    background: transparent;
+    border: 1.5px solid rgba(0, 242, 254, 0.3);
+    color: var(--primary);
+    box-shadow: none;
+}
+
+.btn--outline:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary);
+    background: rgba(0, 242, 254, 0.07);
+    box-shadow: 0 8px 24px rgba(0, 242, 254, 0.18);
+}
+
+/* --- Nút "Gửi tin nhắn" full-width --- */
+.btn-send {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--bg-main);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border: none;
+    border-radius: var(--btn-radius);
+    cursor: pointer;
+    box-shadow: var(--shadow-rest);
+    transform: translateY(0) scale(1);
+
+    /* cubic-bezier tạo cảm giác đàn hồi khi hover */
+    transition:
+        transform var(--btn-duration) var(--ease-spring),
+        box-shadow var(--btn-duration) var(--ease-out),
+        filter 0.2s ease;
+}
+
+.btn-send:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    filter: brightness(1.08);
+}
+
+/* Click → thu nhỏ → "đã bấm" */
+.btn-send:active {
+    transform: translateY(0) scale(0.96);
+    box-shadow: 0 2px 8px rgba(0, 242, 254, 0.2);
+    transition: transform 0.10s ease-in, box-shadow 0.10s ease-in;
+}
+
+/* Trạng thái "Đã gửi" (thêm bởi JS) */
+.btn-send.sent {
+    background: linear-gradient(135deg, #10b981, #059669);
+    box-shadow: 0 6px 22px rgba(16, 185, 129, 0.4);
+    pointer-events: none;
+}
+
+
+/* ============================================================
+   3. BUỔI 6 – KỸ THUẬT 2: @keyframes – VÒNG TRÒN XOAY
+      Nguyên lý:
+      · border-radius: 50%           → hình tròn
+      · border-color: transparent    → 3 cạnh trong suốt
+      · border-top-color: var(--primary) → CHỈ cạnh trên có màu
+      → Tạo "cánh quạt" duy nhất xoay vòng
+
+      animation: spin [thời gian] linear infinite
+      · linear    → tốc độ đều (KHÔNG ease để tránh giật)
+      · infinite  → lặp vô hạn
+   ============================================================ */
+
+/* @keyframes spin – Xoay 360° từ đầu tới cuối */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    /* góc bắt đầu */
+    to {
+        transform: rotate(360deg);
+    }
+
+    /* 1 vòng hoàn chỉnh */
+}
+
+/* Vòng xoay quanh avatar trong sidebar (3s – chậm, trang trọng) */
+.avatar-ring {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: var(--primary);
+    /* CHỈ cạnh TOP có màu */
+    border-right-color: rgba(0, 242, 254, 0.2);
+    /* cạnh RIGHT mờ nhẹ */
+    /* Xoay 3s linear infinite → vòng trang trí liên tục */
+    animation: spin 3s linear infinite;
+}
+
+/* Spinner inline bên trong nút khi submit form (0.7s – nhanh) */
+.spinner-inline {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2.5px solid transparent;
+    border-top-color: var(--bg-main);
+    /* màu tối để tương phản với nền sáng */
+    /* Xoay 0.7s linear infinite → tốc độ loading chuẩn */
+    animation: spin 0.7s linear infinite;
+    flex-shrink: 0;
+}
+
+
+/* ============================================================
+   4. BUỔI 6 – KỸ THUẬT 3: AOS – ANIMATE ON SCROLL
+      CSS bên dưới KHÔNG thay thế thư viện AOS.
+      AOS hoạt động bằng cách:
+      · Trước khi scroll đến: thêm class [data-aos] vào phần tử
+        → phần tử bị ẩn (opacity: 0, transform offset)
+      · Khi scroll đến: thêm class .aos-animate
+        → phần tử hiện ra với transition mượt mà
+
+      CSS dưới đây chỉ tùy chỉnh thêm cho các phần tử
+      có data-aos trong portfolio để trông đẹp hơn.
+   ============================================================ */
+
+/* Đảm bảo các section có data-aos không bị overflow khi ẩn */
+[data-aos] {
+    pointer-events: none;
+    /* tắt click khi đang ẩn */
+}
+
+[data-aos].aos-animate {
+    pointer-events: auto;
+    /* bật click sau khi đã hiện */
+}
+
+/* Tùy chỉnh: skill-tag xuất hiện lần lượt (stagger effect)
+   Kết hợp với data-aos="fade-up" trên từng .skill-tag */
+.skill-tag {
+    transition:
+        transform var(--btn-duration) var(--ease-spring),
+        background 0.2s ease,
+        color 0.2s ease,
+        box-shadow var(--btn-duration) var(--ease-out);
+}
+
+.skill-tag:hover {
+    background: var(--primary);
+    color: var(--bg-main);
+    transform: translateY(-3px);
+    /* nâng lên 3px giống btn */
+    box-shadow: 0 6px 18px var(--primary-glow);
+}
+
+/* Card hover – dùng ease-spring để "nẩy" nhẹ */
+.service-box,
+.project-card,
+.content-card {
+    transition:
+        transform var(--btn-duration) var(--ease-spring),
+        border-color 0.25s ease,
+        box-shadow var(--btn-duration) var(--ease-out);
+}
+
+.service-box:hover,
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 242, 254, 0.3);
+    box-shadow: 0 14px 36px rgba(0, 242, 254, 0.1);
+}
+
+/* Contact link – trượt ngang khi hover */
+.contact-link {
+    transition:
+        transform var(--btn-duration) var(--ease-spring),
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.contact-link:hover {
+    transform: translateX(5px);
+    /* trượt phải 5px thay vì nâng lên */
+    border-color: rgba(0, 242, 254, 0.3);
+    color: var(--text-white);
+}
+
+/* ============================================================
+   5. FLOATING ACTION BUTTON (FAB) & @KEYFRAMES PULSE
+   ============================================================ */
+.fab-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+}
+
+.fab-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--bg-main);
+    font-size: 1.8rem;
+    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.4);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+
+    /* Kích hoạt animation pulse */
+    animation: pulse-animation 2s infinite;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fab-btn:hover {
+    animation: none;
+    /* Dừng pulse khi hover để đỡ rối mắt */
+    transform: scale(1.15) translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 242, 254, 0.6);
+}
+
+/* @keyframes tạo hiệu ứng phập phồng (pulse) co giãn */
+@keyframes pulse-animation {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.7);
+    }
+
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 15px rgba(0, 242, 254, 0);
+        /* Bóng lan tỏa ra và mờ dần */
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 242, 254, 0);
+    }
+}
+
+/* =====================================================
+   PARALLAX SECTION
+   ===================================================== */
+.parallax-section {
+    position: relative;
+    min-height: 350px;
+    margin: 40px 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+
+    /* Ảnh nền */
+    background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1920');
+
+    /* Cấu hình Parallax cơ bản */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* Flexbox để căn giữa nội dung */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Lớp phủ tối (Overlay) để làm nổi bật chữ */
+.parallax-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 15, 26, 0.65);
+    /* Màu nền tối trong suốt */
+    z-index: 1;
+}
+
+.parallax-content {
+    position: relative;
+    z-index: 2;
+    /* Nổi lên trên overlay */
+    padding: 30px;
+    color: #fff;
+}
+
+.parallax-content h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--primary);
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.parallax-content p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Hỗ trợ Mobile: Tắt Parallax (fixed) vì iOS Safari hỗ trợ kém hoặc làm giật lag */
+@media (max-width: 768px) {
+    .parallax-section {
+        background-attachment: scroll;
+        /* Chuyển về cuộn bình thường trên mobile */
+        min-height: 250px;
+    }
+
+    .parallax-content h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* =====================================================
+   SKILLS PROGRESS BARS (TOOLTIP BUBBLE STYLE)
+   ===================================================== */
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    /* Tăng khoảng cách để có chỗ cho tooltip phía trên */
+    margin-top: 40px;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    /* Chữ nằm trên thanh */
+    gap: 12px;
+}
+
+/* Tên kỹ năng */
+.skill-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--skill-color, #00f2fe);
+    text-align: left;
+}
+
+/* Thanh bar nền dạng đặc, bo góc tròn */
+.skill-bar {
+    width: 100%;
+    height: 12px;
+    /* Độ dày vừa phải */
+    background: color-mix(in srgb, var(--skill-color) 15%, rgba(255, 255, 255, 0.1));
+    border-radius: 20px;
+    position: relative;
+}
+
+/* Phần fill có màu đặc chạy từ 0 đến --skill-level */
+.skill-progress {
+    height: 100%;
+    width: 0;
+    /* Bắt đầu từ 0% */
+    background: var(--skill-color, #00f2fe);
+    border-radius: 20px;
+    position: relative;
+    /* Rất quan trọng để tooltip định vị theo đuôi thanh */
+}
+
+/* Phần hiển thị % (Tooltip Bubble) nổi ở đuôi thanh */
+.skill-percent {
+    position: absolute;
+    right: 0;
+    top: -35px;
+    transform: translateX(50%);
+    /* Căn giữa tooltip so với mút phải của thanh màu */
+
+    background: var(--skill-color, #00f2fe);
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Mũi tên trỏ xuống của Tooltip */
+.skill-percent::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px 5px 0;
+    border-style: solid;
+    border-color: var(--skill-color, #00f2fe) transparent transparent transparent;
+}
+
+/* Dùng class của thư viện AOS để bắt đầu chạy animation khi người dùng cuộn tới */
+.skills-container.aos-animate .skill-progress {
+    /* Chạy từ 0 đến width cụ thể trong 2 giây, dùng ease-out để chậm dần đều (mượt mà) */
+    animation: fill-progress 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.2s;
+    /* Chờ thẻ hiện ra một chút rồi mới chạy */
+}
+
+/* Keyframe sử dụng biến CSS --skill-level truyền từ HTML */
+@keyframes fill-progress {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: var(--skill-level);
+    }
+}
+
+/* =====================================================
+   HAMBURGER MENU ICON (TO X)
+   ===================================================== */
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+    z-index: 1000;
+    position: fixed;
+    /* Ghim ở góc phải màn hình cho mobile */
+    top: 25px;
+    right: 25px;
+}
+
+.hamburger-menu .bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary);
+    /* Lấy màu chủ đạo */
+    border-radius: 3px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: center;
+}
+
+/* HIỆU ỨNG KHI THÊM CLASS 'open' */
+.hamburger-menu.open .bar-top {
+    /* Di chuyển xuống giữa (22px - 3px = 19px khoảng cách, chia 2 = 9.5px) rồi xoay 45 độ */
+    transform: translateY(9.5px) rotate(45deg);
+}
+
+.hamburger-menu.open .bar-middle {
+    /* Ẩn thanh giữa */
+    opacity: 0;
+    transform: translateX(-10px);
+    /* Kèm theo hiệu ứng trượt nhẹ ra ngoài trước khi mất */
+}
+
+.hamburger-menu.open .bar-bottom {
+    /* Di chuyển lên giữa rồi xoay -45 độ */
+    transform: translateY(-9.5px) rotate(-45deg);
+}
+
+/* Chỉ hiện Hamburger trên thiết bị di động */
+@media (min-width: 1101px) {
+    .hamburger-menu {
+        display: none;
+    }
+}
+
+/* =====================================================
+     TYPING EFFECT (HIỆU ỨNG MÁY ĐÁNH CHỮ BẰNG CSS)
+     ===================================================== */
+.typing-effect {
+    display: inline-block;
+    /* Giúp khung viền ôm sát nội dung */
+    overflow: hidden;
+    /* Giấu phần chữ chưa được gõ */
+    white-space: nowrap;
+    /* Không cho chữ rớt dòng */
+    border-right: 3px solid var(--primary);
+    /* Con trỏ nhấp nháy */
+    font-family: monospace;
+    /* Font chữ lập trình nhìn hợp với hiệu ứng này hơn */
+    font-size: 1.2rem;
+    color: var(--primary);
+
+    /* Animation chạy trong 3 giây, chia làm 24 bước (tuỳ thuộc số ký tự), giữ nguyên trạng thái cuối (forwards) */
+    animation:
+        typing 3s steps(24, end) forwards,
+        blink-caret 0.75s step-end infinite;
+}
+
+/* Hiệu ứng kéo dài chiều rộng từ 0 đến kích thước thật của chữ */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 24.5ch;
+    }
+
+    /* Cộng thêm 0.5ch để không bị lẹm chữ cuối cùng */
+}
+
+/* Hiệu ứng chớp tắt con trỏ (border-right) */
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: var(--primary);
+    }
+}
