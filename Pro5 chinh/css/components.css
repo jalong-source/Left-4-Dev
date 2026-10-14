@@ -507,17 +507,99 @@
 .tag-list { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 1.3rem 0 0; padding: 0; list-style: none; }
 .tag-list li { padding: 0.35rem 0.6rem; border: 1px solid var(--line); color: var(--tag-ink); font-family: var(--font-mono); font-size: 0.58rem; }
 
-.contact { position: relative; overflow: hidden; padding-block: clamp(3rem, 6vw, 5rem); border: 1px solid var(--line); background: radial-gradient(ellipse at 81% 50%, var(--accent-wash-09), transparent 42%), var(--surface); }
-.contact-top { position: relative; z-index: 1; display: flex; justify-content: space-between; gap: 1rem; color: var(--muted); font-size: 0.59rem; letter-spacing: 0.09em; }
-.contact h2 { position: relative; z-index: 1; margin-top: 4rem; font-size: clamp(3rem, 7vw, 5.7rem); }
-.contact-intro { position: relative; z-index: 1; max-width: 490px; margin-top: 1rem; color: var(--muted); font-size: 0.88rem; line-height: 1.8; }
-.contact-cta { position: relative; z-index: 1; margin-top: 1.6rem; }
-.contact-links { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 4rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
-.contact-links a { display: grid; grid-template-columns: 1fr auto; gap: 0.35rem 0.8rem; min-width: 0; color: var(--ink); font-size: 0.7rem; overflow-wrap: anywhere; }
-.contact-links a > span:last-child { grid-column: 2; grid-row: 1 / span 2; align-self: center; color: var(--accent); }
-.contact-links a:hover > span:nth-child(2) { color: var(--accent); }
-.contact-key { color: var(--faint); font-size: 0.56rem; letter-spacing: 0.1em; }
-.contact-decoration { position: absolute; right: -3rem; bottom: -10rem; color: var(--contact-decoration); font-size: 27rem; line-height: 1; }
+.contact {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(3rem, 6vw, 4.8rem);
+  padding-inline: clamp(1.8rem, 4vw, 3.5rem);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: radial-gradient(ellipse at 81% 50%, var(--accent-wash-09), transparent 52%), var(--surface);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.4);
+}
+.contact-top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  color: var(--muted);
+  font-size: 0.65rem;
+  letter-spacing: 0.09em;
+}
+.contact h2 {
+  position: relative;
+  z-index: 1;
+  margin-top: 3.5rem;
+  font-size: clamp(3rem, 7vw, 5.4rem);
+  letter-spacing: -0.05em;
+}
+.contact-intro {
+  position: relative;
+  z-index: 1;
+  max-width: 540px;
+  margin-top: 1.2rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.85;
+}
+.contact-cta {
+  position: relative;
+  z-index: 1;
+  margin-top: 2rem;
+}
+.contact-links {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 4.5rem;
+  padding-top: 1.8rem;
+  border-top: 1px solid var(--line);
+}
+.contact-links a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-width: 0;
+  color: var(--ink);
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+  transition: transform 180ms var(--ease);
+}
+.contact-links a:hover {
+  transform: translateY(-2px);
+}
+.contact-links a > span:nth-child(2) {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+}
+.contact-links a > span:last-child {
+  align-self: flex-start;
+  color: var(--accent);
+  font-size: 0.85rem;
+}
+.contact-links a:hover > span:nth-child(2) {
+  color: var(--accent);
+}
+.contact-key {
+  color: var(--faint);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+}
+.contact-decoration {
+  position: absolute;
+  right: -2rem;
+  bottom: -9rem;
+  color: var(--contact-decoration);
+  font-size: 26rem;
+  line-height: 1;
+  pointer-events: none;
+}
 
 .site-footer { display: grid; grid-template-columns: 1fr 0.8fr 1.2fr; gap: 3rem; padding-block: 2.5rem; }
 .footer-group { align-self: center; }
@@ -583,9 +665,8 @@
   .flip-skill-front h3 { font-size: 1.05rem; }
   .portfolio-project { grid-template-columns: 1fr; gap: 1.5rem; padding: 1rem; }
   .project-visual { min-height: 270px; }
-  .window-body { min-height: 205px; }
-  .contact { width: calc(100% - var(--gutter) * 2); padding: 2rem 1.2rem; }
-  .contact-top { flex-direction: column; }
+  .contact { width: 100%; padding: 2.2rem 1.4rem; }
+  .contact-top { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
   .contact h2 { margin-top: 3.2rem; font-size: clamp(3rem, 12vw, 4.5rem); }
   .contact-links { grid-template-columns: 1fr; gap: 0; margin-top: 2.8rem; }
   .contact-links a { padding-block: 0.9rem; border-bottom: 1px solid var(--line); }
